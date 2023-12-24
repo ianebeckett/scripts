@@ -1,3 +1,8 @@
+bindings in zshrc:
+
+C-f: tmux-sessionizer
+C-h: cht.sh
+
 # tmux-sessionizer
 
 An iteration on [ThePrimeagen/tmux-sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer).
@@ -24,3 +29,9 @@ Current workaround options:
     
 I haven't accounted for multiple projects with the same base name. I intend to
 avoid that situation for now.
+
+# cht.sh
+
+add programming langauges to scripts/tmux-cht-languages
+add commands to scripts/tmux-cht-commands
+
