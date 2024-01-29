@@ -1,8 +1,8 @@
 awk
+curl
 find
-g++
-gcc
-gdb
+git
+git-worktree
 grep
 sed
 xargs
