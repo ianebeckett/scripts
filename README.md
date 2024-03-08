@@ -5,7 +5,7 @@ C-h: cht.sh
 
 # tmux-sessionizer
 
-An iteration on [ThePrimeagen/tmux-sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer).
+derived from [ThePrimeagen/tmux-sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer).
 
 |tmux       |terminal|selection               |result                      |
 |-----------|--------|------------------------|----------------------------|
