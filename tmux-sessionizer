@@ -16,15 +16,13 @@ tmuxRunning=$(pgrep tmux)
 # not running
 if [[ -z $tmuxRunning ]]; then
     tmux new-session -s $selectedName -c $selected
-    exit 0
+    return 0
 fi
 
-# TODO: detached
-# "unexpected OEF" may have been due to missing `fi`
-# --> try this again; attach, then switch client or start new session
-#if [[ -z $TMUX ]]; then
-#    tmux attach
-#fi
+# detached
+if [[ -z $TMUX ]]; then
+    tmux new-session -A -s $selectedName -c $selected
+fi
 
 # attached
 if ! tmux has-session -t=$selectedName 2> /dev/null; then
