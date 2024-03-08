@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ $# -eq 1 ]]; then
-    selected=$1
+    selected=(realpath $1) 
 else
     selected=$(find ~ ~/personal ~/college ~/college/430-strategy ~/college/482-capstone ~/college/438-distributed -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
