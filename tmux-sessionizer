@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=(realpath $1) 
 else
-    selected=$(find ~ ~/personal ~/college ~/college/430-strategy ~/college/482-capstone ~/college/438-distributed -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~ ~/personal ~/ work ~/college ~/college/430-strategy ~/college/482-capstone ~/college/438-distributed -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
@@ -16,7 +16,7 @@ tmuxRunning=$(pgrep tmux)
 # not running
 if [[ -z $tmuxRunning ]]; then
     tmux new-session -s $selectedName -c $selected
-    return 0
+    exit 0
 fi
 
 # detached
