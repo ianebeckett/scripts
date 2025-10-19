@@ -1,9 +1,22 @@
 #!/usr/bin/env bash
 
+
+DIRS=(
+    ~/
+    ~/personal
+    ~/work
+    ~/school
+    ~/school/*
+    ~/.dotfiles
+    ~/.dotfiles/.config 
+)
+
 if [[ $# -eq 1 ]]; then
     selected=(realpath $1) 
 else
-    selected=$(find ~/personal ~/work ~/school ~/school/* ~/.dotfiles/.config -mindepth 1 -maxdepth 1 -type d | fzf --layout=reverse)
+    selected=$(find "${DIRS[@]}" -mindepth 1 -maxdepth 1 -type d \
+    | sed "s|^$HOME/||" \
+    | fzf --layout=reverse)
 fi
 
 if [[ -z $selected ]]; then
