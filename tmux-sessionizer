@@ -26,18 +26,15 @@ fi
 selectedName=$(basename "$selected" | tr . _)
 tmuxRunning=$(pgrep tmux)
 
-# not running
 if [[ -z $tmuxRunning ]]; then
     tmux new-session -s $selectedName -c $selected
     exit 0
 fi
 
-# detached
 if [[ -z $TMUX ]]; then
     tmux new-session -A -s $selectedName -c $selected
 fi
 
-# attached
 if ! tmux has-session -t=$selectedName 2> /dev/null; then
     tmux new-session -ds $selectedName -c $selected
 fi
