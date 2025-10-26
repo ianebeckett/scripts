@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "[open-todo] opening $1"
+
+TODO_FILE=$(find "$1" -maxdepth 1 -iname 'TODO.md' -print -quit)
+
+if [ -n "$TODO_FILE" ]; then
+  nvim "$TODO_FILE"
+else
+  nvim $HOME/personal/todo.md
+fi
