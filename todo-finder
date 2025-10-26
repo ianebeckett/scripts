@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+# Find the todo.md file that is most relevant to the current directory.
+# The order of relevance is cwd > current workspace > selected workspace
+
 log() {
-    echo "$*" >> $HOME/.local/scripts/todo-finder_log
+    echo "$*" >> $HOME/.local/scripts/todo-finder.log
 }
 
 todo=$(find $PWD -maxdepth 1 -iname 'todo.md' -print -quit)
@@ -16,6 +19,12 @@ DIRS=(
     $HOME/school
     $HOME/work
 )
+
+for dir in "${DIRS[@]}"; do
+    if [[ "$PWD" == "$dir"* ]]; then
+        nvim $dir/todo.md
+    fi
+done
 
 selected=$(
     printf "%s\n" "${DIRS[@]}" \
