@@ -4,8 +4,10 @@
 # The order of relevance is cwd > current workspace > selected workspace
 
 log() {
-    echo "$*" >> $HOME/.local/scripts/todo-finder.log
+    echo "$*" >&2 >> $HOME/.local/scripts/todo-finder.log
 }
+
+log "howdy from stderr!"
 
 todo=$(find $PWD -maxdepth 1 -iname 'todo.md' -print -quit)
 

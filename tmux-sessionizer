@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#EASTER EGG: prefix-L will swap to previous session in tmux
+
 DIRS=(
     $HOME
     $HOME/.local
@@ -25,7 +27,7 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-selectedName=$(basename "$selected" | tr . _)
+selectedName=$(basename "$selected" | tr ".,: " "____")
 tmuxRunning=$(pgrep tmux)
 
 # not running
