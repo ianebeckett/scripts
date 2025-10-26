@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-todo=$(find "$1" -maxdepth 1 -iname 'TODO.md' -print -quit)
-
-if [ -n "$todo" ]; then
-  nvim "$todo"
-else
-  nvim $HOME/personal/todo.md
-fi
