@@ -3,12 +3,11 @@
 
 DIRS=(
     $HOME
-    $HOME/.local
     $HOME/personal
-    $HOME/work
+    $HOME/personal/dev
     $HOME/school
     $HOME/school/*
-    $HOME/.config
+    $HOME/work
 )
 
 if [[ $# -eq 1 ]]; then
