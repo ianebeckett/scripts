@@ -4,10 +4,8 @@
 # The order of relevance is cwd > current workspace > selected workspace
 
 log() {
-    echo "$*" >&2 >> $HOME/.local/scripts/todo-finder.log
+    echo "$*" >&2 >> $HOME/.local/scripts/tmux-todo-finder.log
 }
-
-log "howdy from stderr!"
 
 todo=$(find $PWD -maxdepth 1 -iname 'todo.md' -print -quit)
 
@@ -25,6 +23,7 @@ DIRS=(
 for dir in "${DIRS[@]}"; do
     if [[ "$PWD" == "$dir"* ]]; then
         nvim $dir/todo.md
+        exit 0
     fi
 done
 
@@ -39,3 +38,4 @@ if [[ -z $selected ]]; then
 fi
 
 nvim $HOME/"$selected"/todo.md
+exit 0

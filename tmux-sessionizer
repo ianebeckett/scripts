@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-#EASTER EGG: prefix-L will swap to previous session in tmux
+#prefix-L will swap to previous session in tmux
 
 DIRS=(
     $HOME
@@ -9,8 +8,7 @@ DIRS=(
     $HOME/work
     $HOME/school
     $HOME/school/*
-    $HOME/.dotfiles
-    $HOME/.dotfiles/.config
+    $HOME/.config
 )
 
 if [[ $# -eq 1 ]]; then
